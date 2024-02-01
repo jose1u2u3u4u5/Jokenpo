@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Jokenpo</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    
+</head>
+<body>
+
+    <div class="container-fluid">
+    <div class="row" style="color: rgb(51, 52, 82);">
+          <h2 class="text-center" id="tituloJogador">Jogador 1</h2>
+    </div>
+
+
+    <h2>Jokenpo</h2>
+  <div class="row">
+    <div class="Jogador1">
+    <h4>Jogador 1</h4>
+    <button  onclick="turno(1, 0)"><img src="/imagens jokenpo/oj5t7nwhxbo81.jpg">Pedra</button>
+    <button onclick="turno(1, 1)"><img src="/imagens jokenpo/d5jd8xd-144f90b3-78f6-4103-a736-15581b83e1b5.png">Papel</button>
+    <button onclick="turno(1, 2)"><img src="/imagens jokenpo/Sheele.webp">tesoura</button>
+  </div>
+</div>
+   <p></p>
+  <div class="row">
+    <div class="Jogador2">
+    <h4>Jogador 2</h4>
+    <button onclick="turno(2,0)"><img src="/imagens jokenpo/oj5t7nwhxbo81.jpg">Pedra</button>
+    <button onclick="turno(2,1)"><img src="/imagens jokenpo/d5jd8xd-144f90b3-78f6-4103-a736-15581b83e1b5.png">Papel</button>
+    <button onclick="turno(2,2)"><img src="/imagens jokenpo/Sheele.webp">tesoura</button>
+    </div>
+  </div>  
+   <p></p>
+   
+
+<h4></h4>
+<p></p>
+
+
+<script>
+    
+    var jogador = 1
+    var jogada1 = 98
+    var jogada2 = 99
+
+    function turno(jogador,jogada )
+    {
+      if (jogador == 1) 
+      {
+        jogada1 = jogada; 
+        document.getElementById('tituloJogador').innerHTML=
+        'Jogador 2, agora é sua vez'
+        
+      }if (jogador ==2)
+      {
+        jogada2 = jogada;
+        console.log(jogada1,jogada2)
+        
+          if((jogada2 == 0 && jogada1 == 2) || 
+            (jogada2 == 1 && jogada1 == 0) || 
+            (jogada2 == 2 && jogada1 == 1))
+            {
+              document.getElementById('tituloJogador').innerHTML=
+        'Jogador 2 Venceu'
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+
+            }if((jogada1 == 0 && jogada2 == 2) || 
+            (jogada1 == 1 && jogada2 == 0) || 
+            (jogada1 == 2 && jogada2 == 1))
+            {
+              document.getElementById('tituloJogador').innerHTML=
+        'Jogador 1 Venceu'
+        var audio = new Audio('/audio/Queen - We are the champions (Chorus only).mp3');
+        audio.play();
+            }
+        }if((jogada1 == jogada2))
+            {
+              document.getElementById('tituloJogador').innerHTML=
+        'Empate'
+        var audio = new Audio('/audio/Jurassic Park Theme Harmonica.mp3');
+        audio.play();
+            }
+     
+
+
+
+
+    }
+
+
+    
+    
+
+
+</script>
+
+
+</body>
+</html>
